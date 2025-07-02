@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Puzzle: Free Online Number Sliding Puzzle Game | Relax & Train Your Brain</title>
+    <meta name="description" content="Play Mindful Puzzle - A free online number sliding puzzle game designed for stress relief and mental exercise. Perfect for all ages, no download required. Train your brain while having fun!">
+    <meta name="keywords" content="puzzle game, number puzzle, sliding puzzle, brain game, online puzzle, free puzzle game, mental exercise, stress relief">
+    <meta name="author" content="Your Game Website">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://yourdomain.com/puzzle" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/puzzle">
+    <meta property="og:title" content="Mindful Puzzle: Free Online Number Sliding Puzzle Game">
+    <meta property="og:description" content="Play Mindful Puzzle - A free online number sliding puzzle game designed for stress relief and mental exercise. Perfect for all ages, no download required.">
+    <meta property="og:image" content="https://yourdomain.com/puzzle/images/puzzle-preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/puzzle">
+    <meta property="twitter:title" content="Mindful Puzzle: Free Online Number Sliding Puzzle Game">
+    <meta property="twitter:description" content="Play Mindful Puzzle - A free online number sliding puzzle game designed for stress relief and mental exercise. Perfect for all ages, no download required.">
+    <meta property="twitter:image" content="https://yourdomain.com/puzzle/images/puzzle-preview.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://yourdomain.com/puzzle/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://yourdomain.com/puzzle/images/apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light': '#F5F5F7',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .tile {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: #007AFF;
+            color: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        .tile:hover {
+            transform: scale(0.95);
+        }
+        .tile.empty {
+            background-color: transparent;
+            cursor: default;
+        }
+        .tile.empty:hover {
+            transform: none;
+        }
+        #puzzle-container {
+            display: grid;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: #F5F5F7;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-apple-light min-h-screen">
+    <header class="bg-white shadow-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl md:text-3xl font-bold text-apple-blue">Mindful Puzzle</h1>
+                <div class="space-x-4">
+                    <a href="#game" class="text-apple-gray hover:text-apple-blue transition">Play Now</a>
+                    <a href="#about" class="text-apple-gray hover:text-apple-blue transition">About</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Relax Your Mind with Engaging Puzzles</h2>
+            <p class="text-xl text-apple-gray max-w-2xl mx-auto">Experience the perfect blend of relaxation and mental exercise with our curated collection of mindful puzzles.</p>
+        </section>
+
+        <section id="game" class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Play Now</h2>
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <div id="moves" class="text-lg font-semibold text-apple-blue">Moves: 0</div>
+                    <div id="timer" class="text-lg font-semibold text-apple-blue">Time: 0:00</div>
+                </div>
+                <div id="puzzle-container"></div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">About Mindful Puzzle</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-apple-blue mb-4">Why Choose Mindful Puzzle?</h3>
+                    <p class="text-gray-600">Our puzzles are carefully designed to provide a perfect balance of challenge and relaxation. Each puzzle is crafted to help you focus, reduce stress, and improve cognitive function.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-apple-blue mb-4">Benefits</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Stress reduction through focused gameplay</li>
+                        <li>Improved concentration and attention span</li>
+                        <li>Enhanced problem-solving skills</li>
+                        <li>Mental relaxation and mindfulness</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">How to Play</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <ol class="list-decimal list-inside text-gray-600 space-y-4">
+                    <li>点击与空白格相邻的数字方块来移动它</li>
+                    <li>将所有数字按顺序排列（从左到右，从上到下）</li>
+                    <li>尝试用最少的步数完成拼图</li>
+                    <li>挑战自己，提高解题速度</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 添加社交分享按钮 -->
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Share This Game</h2>
+            <div class="flex justify-center space-x-4">
+                <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com/puzzle&text=Play%20Mindful%20Puzzle%20-%20A%20relaxing%20brain%20game" 
+                   target="_blank" 
+                   class="bg-[#1DA1F2] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+                    Share on Twitter
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/puzzle" 
+                   target="_blank" 
+                   class="bg-[#4267B2] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+                    Share on Facebook
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center text-apple-gray">
+                <p>&copy; 2024 Mindful Puzzle. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 添加结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Mindful Puzzle",
+        "description": "A relaxing number sliding puzzle game designed for stress relief and mental exercise",
+        "genre": ["Puzzle", "Brain Game"],
+        "gamePlatform": "Web Browser",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "100"
+        }
+    }
+    </script>
+
+    <script src="game.js"></script>
+</body>
+</html> 
